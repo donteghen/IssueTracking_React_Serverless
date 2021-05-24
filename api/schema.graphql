@@ -1,0 +1,18 @@
+type Query {
+  about: String!
+  issueList(status:String): [Issue!]!
+}
+type Mutation {
+  setAboutMessage(message: String!): String
+  createIssue(title:String!, owner:String!, effort:Int, due:String!): Issue
+}
+
+type Issue {
+  id: Int!
+  title: String!
+  status: String!
+  owner: String
+  effort: Int
+  created: String!
+  due: String
+}

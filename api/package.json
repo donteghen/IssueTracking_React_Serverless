@@ -1,0 +1,21 @@
+{
+  "name": "hello-world-serverless-api-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "container.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "watch": "npx babel src --out-dir public --watch --verbose",
+    "compile": "npx babel src --out-dir public"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.24.1",
+    "express": "^4.17.1",
+    "graphql": "^15.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
