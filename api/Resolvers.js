@@ -45,14 +45,17 @@ module.exports = {
             issuesDB.push(newIssue)
             return newIssue
         },
-        updateIssue : (_, {id, update}) =>{
-            console.log(id, update)
+        updateIssue : (_, {id, status, due, effort,description, owner}) =>{
+            console.log(id,status)
             const updatableIssue = issuesDB.find(issue => issue.id === id)
             if(updatableIssue){
-                //console.log(updatableIssue);
-                Object.keys(update).forEach(key => update[key] ? updatableIssue[key] = update[key]: updatableIssue[key])
+                updatableIssue.status = status ?? updatableIssue.status  
+                updatableIssue.effort = effort ?? updatableIssue.effort  
+                updatableIssue.due = due ?? updatableIssue.due  
+                updatableIssue.owner = owner ?? updatableIssue.owner  
+                updatableIssue.description = description ?? updatableIssue.description  
             }
-            //console.log(updatableIssue)
+            console.log(updatableIssue)
             issuesDB = issuesDB.filter(issue => issue.id !== id).concat(updatableIssue)
             return updatableIssue;
         },

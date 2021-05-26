@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {useParams, Link} from 'react-router-dom'
 import NumberInput from '../specializedComponents/NumberInput.jsx'
-const uri = 'http://localhost:3000/graphql'
+import {GRAPHQL_URI} from '../../env'
 export default function IssueEdit (){
     const [issue, setIssue] = useState({})
     const {id} = useParams()
@@ -12,11 +12,11 @@ export default function IssueEdit (){
         const query = `
         query {
             issue(id:${id}){
-                id effort due owner description status created
+                id effort due owner description status created title
             }
         }
         `
-        fetch(uri, {
+        fetch(GRAPHQL_URI, {
             method:'POST',
             headers:{'Content-Type': 'application/json'},
             body:JSON.stringify({query})
@@ -28,23 +28,22 @@ export default function IssueEdit (){
     }
     function handleSubmit(e){
         e.preventDefault()
-        const {id, ...updatedata} = issue
-        console.log(updatedata)
+        const {status, description, due, owner, effort} = issue
         const query = `
         mutation {
-            updateIssue(id:${id}, update:${updatedata}){
-                title description id owner status due created
+            updateIssue(id:${id}, status:"${status}", description:"${description}", due:"${due}", owner:"${owner}", effort:${effort}){
+                title description id owner status due created effort
             }
         }
         `;
-        fetch(uri, {
+        fetch(GRAPHQL_URI, {
             method:'POST',
             headers:{'Content-Type': 'application/json'},
             body:JSON.stringify({query})
         }).then(res => res.json())
         .then(result => {
             console.log(result);
-            setIssue(result.data.issue)
+            setIssue(result.data.updateIssue)
         })
     }
     function onChange(e) {

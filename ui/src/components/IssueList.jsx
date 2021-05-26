@@ -12,8 +12,6 @@ export default function IssueList (props){
   const status = param.get('status') ? param.get('status') : 'All'
   const minEffort = param.get('minEffort') ? param.get('minEffort') : 1
   const maxEffort = param.get('maxEffort') ? param.get('maxEffort') : 100
-  console.log(param.get('minEffort'))
-  console.log(status, minEffort,maxEffort)
 
     const [issues, setIssues] = useState([])
      const uri = 'http://localhost:3000/graphql' 
