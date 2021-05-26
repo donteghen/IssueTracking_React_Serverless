@@ -12,7 +12,7 @@ export default function Content (){
     return (
         <Switch>
           <Redirect exact from="/" to="/issues" />
-          <Route path="/issues/:id" component={IssueEdit} />
+          <Route path="/issues/:id/edit" component={IssueEdit} />
           <Route path="/issues" component={IssueList} />
           <Route path="/report" component={IssueReport} />
           <Route path='*' component={PageNotFound} /> 

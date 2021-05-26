@@ -1,5 +1,6 @@
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const path = require('path')
 const app = express();
 
 if(process.env.NODE_ENV === 'production'){
@@ -18,6 +19,12 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 app.use(express.static('public'));
+app.get('*', (req, res) =>{ 
+  console.log('reuwstes')
+  res.sendFile(path.resolve('public/index.html'))
+})
 app.use('/graphql', createProxyMiddleware({ target: 'http://localhost:4000/', changeOrigin: true }));
+
+
 app.listen(3000, function () { console.log('App started on port 3000');
 });

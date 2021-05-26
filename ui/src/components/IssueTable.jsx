@@ -1,9 +1,7 @@
 import React from 'react'
 import IssueRow from './IssueRow.jsx'
 export default function IssueTable (props) {
-    
     const issueRows = props.issues.map(issue => <IssueRow key={issue.id} issue={issue}/> )
-    const rowStyle = {border: "1px solid silver", padding: 4};
     return (
       <table>
         <thead>

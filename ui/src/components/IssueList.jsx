@@ -1,74 +1,81 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import IssueFilter from './IssueFilter.jsx';
 import IssueTable from './IssueTable.jsx';
 import IssueAdd from './IssueAdd.jsx';
-
-export default class IssueList extends React.Component { 
-    constructor(props) {
-      super(props);
-      this.state = { 
-        issues: [] ,
-        
-      };
-       this.uri = 'http://localhost:3000/graphql'
-      this.createIssue = this.createIssue.bind(this);
-      
-    }
-    componentDidMount() {
-      this.loadData();
+import IssueDetail from './IssueDetail.jsx';
+import {Route, useLocation} from 'react-router-dom'
+export default function IssueList (props){ 
+  function useQuery() {
+    return new URLSearchParams(useLocation().search)
   }
-   componentDidUpdate(prevProps){
-     const prevFilterParam = prevProps.location.search
-    const filterParam = this.props.location.search
-    if(prevFilterParam !== filterParam){
-      this.loadData()
-    }
-   }
-     loadData() {
-       const param = this.props.location.search.slice(this.props.location.search.indexOf('=') + 1)
+  const param = useQuery()
+  const status = param.get('status') ? param.get('status') : 'All'
+  const minEffort = param.get('minEffort') ? param.get('minEffort') : 1
+  const maxEffort = param.get('maxEffort') ? param.get('maxEffort') : 100
+  console.log(param.get('minEffort'))
+  console.log(status, minEffort,maxEffort)
+
+    const [issues, setIssues] = useState([])
+     const uri = 'http://localhost:3000/graphql' 
+    useEffect(() => 
+    {
+      //if()
+      loadData();
+  },[status, minEffort, maxEffort]) 
+  //  componentDidUpdate(prevProps){
+  //    const prevFilterParam = prevProps.location.search
+  //   const filterParam = this.props.location.search
+  //   if(prevFilterParam !== filterParam){
+  //     this.loadData()
+  //   }
+  //  }
+     function loadData() {
       const query = 
       `query {
-issueList(status:"${param}") {
+issueList(status:"${status}", minEffort:${minEffort}, maxEffort:${maxEffort}) {
 id title status owner created effort due
 }
 }`;
-      fetch(this.uri, {
+      fetch(uri, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ query })
       }).then(response => response.json())
-      .then(result => this.setState({ issues: result.data.issueList }))
+      .then(result => {
+        console.log(result.data.issueList.map(i => i.effort))
+        setIssues(result.data.issueList)
+      })
   }
-    createIssue(issue) {
+    function createIssue(issue) {
       const query = `
       mutation {
-        createIssue(owner:"${issue.owner}", title:"${issue.title}", due:"${issue.due}", effort:${issue.effort}){
+        createIssue(owner:"${issue.owner}", title:"${issue.title}", due:"${issue.due}", effort:${issue.effort}, description:"${issue.description}"){
           id title owner effort due
         }
       }
       `;
-      fetch(this.uri, {
+      fetch(uri, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ query})
       }).then(response => response.json())
       .then(result => {
-        console.log(result)
-        this.loadData();
+        loadData();
       })
       
   }
-    render() {
-      console.log(this.filterParam)
+     
       return (
         <React.Fragment>
           <h1>Issue Tracker</h1>
           <IssueFilter />
           <hr />
-          <IssueTable issues={this.state.issues} />
+          <IssueTable issues={issues} />
           <hr />
-          <IssueAdd createIssue={this.createIssue} />
+          <IssueAdd createIssue={createIssue} />
+          <hr />
+          <Route path='/issues/:id' component={IssueDetail}/>
+          
         </React.Fragment>
       );
-  }
   }

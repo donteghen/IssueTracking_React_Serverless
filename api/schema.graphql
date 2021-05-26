@@ -1,10 +1,11 @@
 type Query {
   about: String!
-  issueList(status:String): [Issue!]!
+  issueList(status:String, minEffort:Int, maxEffort:Int): [Issue!]!
+  issue(id:Int!) : Issue
 }
 type Mutation {
   setAboutMessage(message: String!): String
-  createIssue(title:String!, owner:String!, effort:Int, due:String!): Issue
+  createIssue(title:String!, owner:String!, effort:Int, due:String!, description:String!): Issue
 }
 
 type Issue {
@@ -15,4 +16,5 @@ type Issue {
   effort: Int
   created: String!
   due: String
+  description: String!
 }
