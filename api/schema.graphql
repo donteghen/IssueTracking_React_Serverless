@@ -6,15 +6,26 @@ type Query {
 type Mutation {
   setAboutMessage(message: String!): String
   createIssue(title:String!, owner:String!, effort:Int, due:String!, description:String!): Issue
+  updateIssue(id: Int, update:IssueUpdate): Issue
+  deleteIssue(id:Int!):Issue
 }
 
+input IssueUpdate {
+  title: String
+  status: String
+  owner: String
+  effort: Int
+  created: String
+  due: String
+  description: String
+}
 type Issue {
   id: Int!
   title: String!
   status: String!
-  owner: String
-  effort: Int
+  owner: String!
+  effort: Int!
   created: String!
-  due: String
+  due: String!
   description: String!
 }

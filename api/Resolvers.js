@@ -1,25 +1,25 @@
-const issuesDB = [
+let issuesDB = [
     {
       id: 1, status: 'New', owner: 'Ravan', effort: 5,
-      created: new Date('2019-01-15'), due: undefined,
+      created: '2019-01-15', due: '2019-02-01',
       title: 'Error in console when clicking Add', description:'this issues is of high impprtance to the manyaks of software'
   }, {
       id: 2, status: 'Assigned', owner: 'Eddie', effort: 14,
-      created: new Date('2019-01-16'), due: new Date('2019-02-01'),
+      created: '2019-01-16', due: '2019-02-01',
       title: 'Missing bottom border on panel', description:'nothing matter any more or less than nothing else. fuck off'
   }, ];
   
 module.exports = {
     Query : {
         about : () => "Issue Tracker API v1.0",
-        issueList : (_, {status, minEffort, maxEffort}) => {
-            console.log(status, minEffort, maxEffort)
+        issueList : (_, {status='All', minEffort=1, maxEffort=100}) => {
+            //console.log(status, minEffort, maxEffort)
             
-            if(status !== 'All'){
+            if(status !== undefined && status !== 'All'){
                 return issuesDB.filter(issue => issue.status === status && issue.effort >= minEffort && issue.effort <= maxEffort)
             }
-            if(status === 'All'){
-                console.log('iiiii')
+            if(status && status === 'All'){
+                //console.log('iiiii')
                 return issuesDB.filter(issue =>issue.effort >= minEffort && issue.effort <= maxEffort)
             }
             return issuesDB
@@ -44,6 +44,26 @@ module.exports = {
             }
             issuesDB.push(newIssue)
             return newIssue
+        },
+        updateIssue : (_, {id, update}) =>{
+            console.log(id, update)
+            const updatableIssue = issuesDB.find(issue => issue.id === id)
+            if(updatableIssue){
+                //console.log(updatableIssue);
+                Object.keys(update).forEach(key => update[key] ? updatableIssue[key] = update[key]: updatableIssue[key])
+            }
+            //console.log(updatableIssue)
+            issuesDB = issuesDB.filter(issue => issue.id !== id).concat(updatableIssue)
+            return updatableIssue;
+        },
+        deleteIssue : (_, {id}) =>{
+            if(id){
+                const deletableIssue = issuesDB.find(issue => issue.id === id);
+                if(deletableIssue){
+                    issuesDB = issuesDB.filter(issue => issue.id !== id);
+                    return deletableIssue;
+                }
+            }
         }
     }
 }
