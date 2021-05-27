@@ -4,6 +4,7 @@ import IssueTable from './IssueTable.jsx';
 import IssueAdd from './IssueAdd.jsx';
 import IssueDetail from './IssueDetail.jsx';
 import {Route, useLocation} from 'react-router-dom'
+import {Button }from 'react-bootstrap'
 export default function IssueList (props){ 
   function useQuery() {
     return new URLSearchParams(useLocation().search)
@@ -17,16 +18,8 @@ export default function IssueList (props){
      const uri = 'http://localhost:3000/graphql' 
     useEffect(() => 
     {
-      //if()
       loadData();
   },[status, minEffort, maxEffort]) 
-  //  componentDidUpdate(prevProps){
-  //    const prevFilterParam = prevProps.location.search
-  //   const filterParam = this.props.location.search
-  //   if(prevFilterParam !== filterParam){
-  //     this.loadData()
-  //   }
-  //  }
      function loadData() {
       const query = 
       `query {
@@ -65,7 +58,7 @@ id title status owner created effort due
      
       return (
         <React.Fragment>
-          <h1>Issue Tracker</h1>
+           
           <IssueFilter />
           <hr />
           <IssueTable issues={issues} />

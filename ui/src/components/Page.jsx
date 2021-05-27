@@ -4,7 +4,7 @@ import Content from './Content.jsx';
 
 export default function Page (){
     return (
-        <div>
+        <div >
             <Header/>
             <Content/>
         </div>

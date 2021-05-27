@@ -55,7 +55,7 @@ module.exports = {
                 updatableIssue.owner = owner ?? updatableIssue.owner  
                 updatableIssue.description = description ?? updatableIssue.description  
             }
-            console.log(updatableIssue)
+            
             issuesDB = issuesDB.filter(issue => issue.id !== id).concat(updatableIssue)
             return updatableIssue;
         },
@@ -67,6 +67,16 @@ module.exports = {
                     return deletableIssue;
                 }
             }
-        }
+        },
+        closeIssue : (_, {id}) =>{
+            if(id){
+                const closableIssue = issuesDB.find(issue => issue.id === id);
+                if(closableIssue){
+                    closableIssue.status = 'Closed'
+                }
+                issuesDB = issuesDB.filter(issue => issue.id !== id).concat(closableIssue)
+                return closableIssue;
+            }
+        },
     }
 }

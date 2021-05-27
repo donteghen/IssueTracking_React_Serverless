@@ -3,17 +3,17 @@ import IssueRow from './IssueRow.jsx'
 export default function IssueTable (props) {
     const issueRows = props.issues.map(issue => <IssueRow key={issue.id} issue={issue}/> )
     return (
-      <table>
+      <table className="table table-striped table-bordered table-hover">
         <thead>
-          <tr className="bordered-table">
-            <th>ID</th>
-            <th>Status</th>
-            <th>Owner</th>
-            <th>Created</th>
-            <th>Effort</th>
-            <th>Due Date</th>
-            <th>Title</th>
-            <th>Action</th>
+          <tr >
+            <th scope='col'>ID</th>
+            <th scope='col'>Status</th>
+            <th scope='col'>Owner</th>
+            <th scope='col'>Created</th>
+            <th scope='col'>Effort</th>
+            <th scope='col'>Due Date</th>
+            <th scope='col'>Title</th>
+            <th scope='col'>Action</th>
           </tr>
         </thead>
         <tbody>

@@ -29,25 +29,25 @@ export default function IssueFilter (){
         history.push(`/issues?status=${status}&minEffort=${minEffort}&maxEffort=${maxEffort}`)
       }
       return (
-        <div>
+        <div className='my-4 py-2'>
            status : 
            { ' '}
-           <select name='status' onChange={handleSelectionChange} >
+           <select style={{border:'1px #0275d8 solid', borderRadius:'25px', outline:'none'}} name='status' onChange={handleSelectionChange} >
              <option value="">All</option>
              <option value="New">New</option>
              <option value="Assigned">Assigned</option>
              <option value="Fixed">Fixed</option>
              <option value="Closed">Closed</option>
            </select>
-            { ' ' }
-            effort Between : { ' '}
-            <input name='minEffort' value={minEffort} type='number' onChange={handleSelectionChange}/>
+            { '  ' }
+            Effort Between : 
+            <input style={{border:'1px #0275d8 solid', borderRadius:'25px', outline:'none'}} name='minEffort' value={minEffort} type='number' onChange={handleSelectionChange}/>
             {' - '}
-            <input name='maxEffort' value={maxEffort} type='number' onChange={handleSelectionChange}/>
-            {' '}
-            <button onClick={applyFilter}>Apply</button>
-            {' '}
-            <button onClick={resetFilter}>reset</button>
+            <input style={{border:'1px #0275d8 solid', borderRadius:'25px', outline:'none'}} name='maxEffort' value={maxEffort} type='number' onChange={handleSelectionChange}/>
+            {'    '}
+            <button className='btn btn-primary' onClick={applyFilter}>Apply</button>
+            {' <=> '}
+            <button className='btn btn-warning' onClick={resetFilter}>reset</button>
         </div>
       )
     }
