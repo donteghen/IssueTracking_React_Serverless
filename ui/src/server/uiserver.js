@@ -1,14 +1,17 @@
-const express = require('express');
-const { createProxyMiddleware } = require('http-proxy-middleware');
-const path = require('path')
+import express from 'express';
+import { createProxyMiddleware } from 'http-proxy-middleware';
+import path from 'path';
+import render from '../../server/render.jsx';
+
+import webpack from 'webpack';
+import devMiddleware from 'webpack-dev-middleware';
+import hotMiddleware from 'webpack-hot-middleware';
+
+import config from '../../webpack.config'
 const app = express();
 
 if(process.env.NODE_ENV === 'production'){
-    const webpack = require('webpack');
-  const devMiddleware = require('webpack-dev-middleware');
-  const hotMiddleware = require('webpack-hot-middleware');
 
-  const config = require('./webpack.config')
   config.entry.app.push('webpack-hot-middleware/client')
   config.options = config.options || [];
   config.options.push(new webpack.HotModuleReplacementPlugin())
@@ -19,6 +22,7 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 app.use(express.static('public'));
+app.get('/about', render);
 app.get('*', (req, res) =>{ 
   console.log('reuwstes')
   res.sendFile(path.resolve('public/index.html'))

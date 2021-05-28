@@ -4,11 +4,11 @@ import {NavbarBrand, Navbar, Nav, NavItem} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 export default function Header (){
     return (
-        <Navbar bg='light' expand='lg'>
-            <Navbar.Brand className='mx-1 px-1'>Issue Tracker</Navbar.Brand>
+        <Navbar bg='light' expand='lg' className='d-flex'>
+            <Navbar.Brand className='justify-content-start mx-1 px-1'>Issue Tracker</Navbar.Brand>
             <Navbar.Toggle aria-controls='navbar-nav'></Navbar.Toggle>
-            <Navbar.Collapse id='navbar-nav'>
-                <Nav className='mr-2'>
+            <Navbar.Collapse id='navbar-nav' className='d-flex'>
+                <Nav className='d-flex justify-content-middle'>
                     <LinkContainer to='/' className='mx-2 px-2'>
                         <NavItem>Home</NavItem>
                     </LinkContainer>
@@ -18,8 +18,11 @@ export default function Header (){
                     <LinkContainer to='/report' className='mx-2 px-2'>
                         <NavItem>Report</NavItem>
                     </LinkContainer>
+                    <LinkContainer to='/about' className='mx-2 px-2'>
+                        <NavItem>About</NavItem>
+                    </LinkContainer>
                 </Nav>
-                <Nav className='ml-auto' >
+                <Nav className='d-flex justify-content-end' >
                     <LinkContainer to='/' >
                         <NavItem>Home</NavItem>
                     </LinkContainer>

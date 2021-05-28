@@ -60,11 +60,11 @@ id title status owner created effort due
         <React.Fragment>
            
           <IssueFilter />
-          <hr />
+         
           <IssueTable issues={issues} />
-          <hr />
+          
           <IssueAdd createIssue={createIssue} />
-          <hr />
+          
           <Route path='/issues/:id' component={IssueDetail}/>
           
         </React.Fragment>

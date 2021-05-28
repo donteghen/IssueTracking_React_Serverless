@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {useParams, Link} from 'react-router-dom'
 import NumberInput from '../specializedComponents/NumberInput.jsx'
-import {GRAPHQL_URI} from '../../env'
+import {GRAPHQL_URI} from '../env'
 export default function IssueEdit (){
     const [issue, setIssue] = useState({})
     const {id} = useParams()

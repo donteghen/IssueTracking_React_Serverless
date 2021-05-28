@@ -2,9 +2,9 @@
   "name": "hello-world-serverless-ui-server",
   "version": "1.0.0",
   "description": "",
-  "main": "container.js",
+  "main": ".js",
   "scripts": {
-    "start": "nodemon uiserver.js",
+    "start": "nodemon ./dist/server.js",
     "watch": "npx webpack --watch",
     "compile": "npx babel src --out-dir public"
   },
@@ -39,6 +39,7 @@
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-middleware": "^4.3.0",
-    "webpack-hot-middleware": "^2.25.0"
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }

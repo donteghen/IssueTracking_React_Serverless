@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link, NavLink, useHistory } from 'react-router-dom'
-import {GRAPHQL_URI} from '../../env'
+import {GRAPHQL_URI} from '../env'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default function IssueRow (props){
     const history = useHistory()

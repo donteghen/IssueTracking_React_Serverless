@@ -17,4 +17,4 @@ const element = <Router>
   <Page/>
 </Router>
 const domContainer = document.querySelector('#container');
-ReactDOM.render(element, domContainer)
+ReactDOM.hydrate(element, domContainer)
