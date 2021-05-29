@@ -1,6 +1,7 @@
 import React from 'react'
 import {Redirect, Switch, Route} from 'react-router-dom'
 import About from '../../About.jsx'
+import IssueDetail from './IssueDetail.jsx'
 import IssueEdit from './IssueEdit.jsx'
 import IssueList from './IssueList.jsx'
 import IssueReport from './IssueReport.jsx'
@@ -14,6 +15,7 @@ export default function Content (){
         <Switch>
           <Redirect exact from="/" to="/issues" />
           <Route path="/issues/:id/edit" component={IssueEdit} />
+          <Route path='/issues/:id' component={IssueDetail}/>
           <Route path="/issues" component={IssueList} />
           <Route path="/report" component={IssueReport} />
           <Route path="/about" component={About} />

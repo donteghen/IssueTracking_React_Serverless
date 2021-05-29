@@ -26,7 +26,11 @@ export default function IssueFilter (){
         history.push('/issues')
       }
       const applyFilter = () =>{
-        history.push(`/issues?status=${status}&minEffort=${minEffort}&maxEffort=${maxEffort}`)
+        let url = '/issues?'
+        if(status.length > 0) url = url.concat(`status=${status}`)
+        if(minEffort.length > 0) url = url.concat(`&minEffort=${minEffort}`)
+        if(maxEffort.length > 0) url=url.concat(`&maxEffort=${maxEffort}`)
+        history.push(url)
       }
       return (
         <div className='container'>

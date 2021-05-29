@@ -8,7 +8,7 @@ export default function IssueRow (props){
     const deleteIssueById = () =>{
       const query = `
       mutation {
-          deleteIssue(id:${issue.id}){
+          deleteIssue(id:"${issue.id}"){
               id title
           }
       }
@@ -25,7 +25,7 @@ export default function IssueRow (props){
   const closeIssueById = () =>{
     const query = `
     mutation {
-        closeIssue(id:${issue.id}){
+        closeIssue(id:"${issue.id}"){
             id title
         }
     }
@@ -40,19 +40,19 @@ export default function IssueRow (props){
     })
 }
     return (
-      <tr>
-        <td>{issue.id}</td>
-      <td>{issue.status}</td>
-      <td>{issue.owner}</td>
-      <td>{issue.created}</td>
-      <td>{issue.effort}</td>
-      <td>{issue.due ? issue.due : ''}</td>
-      <td>{issue.title}</td>
+      <tr >
+      <td >{issue.title.substring(0, 40) + '...'}</td>
+      <td >{issue.status}</td>
+      <td >{issue.owner}</td>
+      <td >{issue.effort}</td>
+      <td >{issue.created}</td>     
+      <td >{issue.due ? issue.due : ''}</td>    
       <td>
-      <Link to={`/issues/${issue.id}/edit`}>Edit</Link>
+      <Link to={`/issues/${issue.id}/edit`}><FontAwesomeIcon icon='edit'/></Link>
       { ' | '}
-      <NavLink to={`/issues/${issue.id}`}>Details</NavLink>
-      { ' - '}
+      <NavLink to={`/issues/${issue.id}`}><FontAwesomeIcon icon='eye' /></NavLink>
+      </td>
+      <td>
       <button className="btn btn-warning" onClick={() => closeIssueById()}>
         <FontAwesomeIcon icon='times-circle' />
       </button>

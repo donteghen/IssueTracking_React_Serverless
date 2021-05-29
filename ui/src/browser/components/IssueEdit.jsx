@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import {useParams, Link} from 'react-router-dom'
-import NumberInput from '../specializedComponents/NumberInput.jsx'
+import {useParams, useHistory} from 'react-router-dom'
 import {GRAPHQL_URI} from '../env'
 export default function IssueEdit (){
     const [issue, setIssue] = useState({})
     const {id} = useParams()
+    const history = useHistory()
     useEffect(() =>{
         loadData()
+        
     }, [id])
     const loadData = () =>{
         const query = `
         query {
-            issue(id:${id}){
+            issue(id:"${id}"){
                 id effort due owner description status created title
             }
         }
@@ -22,8 +23,9 @@ export default function IssueEdit (){
             body:JSON.stringify({query})
         }).then(res => res.json())
         .then(result => {
-            //console.log(result);
-            setIssue(result.data.issue)
+            const resIssue = result.data.issue;
+            resIssue.due = resIssue.due ? new Date(resIssue.due).toISOString().split('T')[0] : ''
+            setIssue(resIssue)
         })
     }
     function handleSubmit(e){
@@ -31,7 +33,7 @@ export default function IssueEdit (){
         const {status, description, due, owner, effort} = issue
         const query = `
         mutation {
-            updateIssue(id:${id}, status:"${status}", description:"${description}", due:"${due}", owner:"${owner}", effort:${effort}){
+            updateIssue(id:"${id}", status:"${status}", description:"${description}", due:"${due}", owner:"${owner}", effort:${effort}){
                 title description id owner status due created effort
             }
         }
@@ -41,9 +43,10 @@ export default function IssueEdit (){
             headers:{'Content-Type': 'application/json'},
             body:JSON.stringify({query})
         }).then(res => res.json())
-        .then(result => {
-            console.log(result);
-            setIssue(result.data.updateIssue)
+        .then(result => {           
+            const resIssue = result.data.updateIssue;
+            resIssue.due = resIssue.due ? new Date(resIssue.due).toISOString().split('T')[0] : ''
+            setIssue(resIssue)
         })
     }
     function onChange(e) {
@@ -52,6 +55,13 @@ export default function IssueEdit (){
         // }
        const {name, value} = e.target;
         setIssue({...issue, [name] : value})
+    }
+    const goBack = () =>{
+        const answer = window.confirm('Are you sure you wish to leave this page?')
+        if(!answer){
+            return
+        }
+        history.push('/issues')
     }
     return (
         <div>
@@ -67,7 +77,7 @@ export default function IssueEdit (){
                     <tr>
                         <td>Status:</td>
                         <td>
-                        <select name="status" value={issue.status ?? ''} onChange={onChange}>
+                        <select className='form-control my-2 py-2' name="status" value={issue.status ?? ''} onChange={onChange}>
                             <option value="New">New</option>
                             <option value="Assigned">Assigned</option>
                             <option value="Fixed">Fixed</option>
@@ -78,7 +88,7 @@ export default function IssueEdit (){
                     <tr>
                         <td>Owner:</td>
                         <td>
-                            <input
+                            <input className='form-control my-2 py-2'
                             name="owner"
                             value={issue.owner ?? ''}
                             onChange={onChange}
@@ -87,13 +97,14 @@ export default function IssueEdit (){
                     <tr>
                         <td>Effort:</td>
                         <td>
-                            <input onChange={onChange} value={issue.effort ?? ''} name='effort' type='number'
+                            <input className='form-control my-2 py-2' onChange={onChange} 
+                            value={issue.effort ?? ''} name='effort' type='number'
                         /> </td>
                     </tr> 
                     <tr>
                         <td>Due:</td>
                         <td>
-                            <input
+                            <input className='form-control my-2 py-2'
                             type='date'
                             name="due"
                             value={issue.due ?? ''}
@@ -103,7 +114,7 @@ export default function IssueEdit (){
                     <tr>
                         <td>Title:</td>
                         <td>
-                            <input
+                            <input className='form-control my-2 py-2'
                             size={50}
                             name="title"
                             value={issue.title ?? ''}
@@ -113,7 +124,7 @@ export default function IssueEdit (){
                     <tr>
                     <td>Description:</td>
                         <td>
-                            <textarea
+                            <textarea className='form-control my-2 py-2'
                             rows={8}
                             cols={50}
                             name="description"
@@ -124,13 +135,13 @@ export default function IssueEdit (){
                     </tr>
                     <tr>
                     <td />
-                        <td><button type="submit">Submit</button></td>
+                        <td>
+                            <button className='btn btn-primary m-2 p-2' type="submit">Submit</button>
+                            <button className='btn btn-warning m-2 p-2' onClick={goBack} >Back to Issues</button>
+                        </td>
                     </tr>
                     </tbody>
                     </table>
-                    <Link to={`/issues/${Number(id)- 1}/edit`}>Prev</Link>
-                    {' | '}
-                    <Link to={`/issues/${Number(id)+ 1}/edit`}>Next</Link>
             </form> )}
 
         </div>

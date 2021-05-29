@@ -103,9 +103,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _About_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../About.jsx */ "./src/About.jsx");
-/* harmony import */ var _IssueEdit_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./IssueEdit.jsx */ "./src/browser/components/IssueEdit.jsx");
-/* harmony import */ var _IssueList_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./IssueList.jsx */ "./src/browser/components/IssueList.jsx");
-/* harmony import */ var _IssueReport_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./IssueReport.jsx */ "./src/browser/components/IssueReport.jsx");
+/* harmony import */ var _IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./IssueDetail.jsx */ "./src/browser/components/IssueDetail.jsx");
+/* harmony import */ var _IssueEdit_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./IssueEdit.jsx */ "./src/browser/components/IssueEdit.jsx");
+/* harmony import */ var _IssueList_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./IssueList.jsx */ "./src/browser/components/IssueList.jsx");
+/* harmony import */ var _IssueReport_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./IssueReport.jsx */ "./src/browser/components/IssueReport.jsx");
+
 
 
 
@@ -124,13 +126,16 @@ function Content() {
     to: "/issues"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/issues/:id/edit",
-    component: _IssueEdit_jsx__WEBPACK_IMPORTED_MODULE_3__.default
+    component: _IssueEdit_jsx__WEBPACK_IMPORTED_MODULE_4__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
+    path: "/issues/:id",
+    component: _IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_3__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/issues",
-    component: _IssueList_jsx__WEBPACK_IMPORTED_MODULE_4__.default
+    component: _IssueList_jsx__WEBPACK_IMPORTED_MODULE_5__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/report",
-    component: _IssueReport_jsx__WEBPACK_IMPORTED_MODULE_5__.default
+    component: _IssueReport_jsx__WEBPACK_IMPORTED_MODULE_6__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/about",
     component: _About_jsx__WEBPACK_IMPORTED_MODULE_2__.default
@@ -204,91 +209,6 @@ function Header() {
 
 /***/ }),
 
-/***/ "./src/browser/components/IssueAdd.jsx":
-/*!*********************************************!*\
-  !*** ./src/browser/components/IssueAdd.jsx ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ IssueAdd)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__);
-
-
-function IssueAdd(props) {
-  const [showForm, setShowForm] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const form = document.forms.issueAdd;
-    const issue = {
-      owner: form.owner.value,
-      title: form.title.value,
-      due: form.due.value,
-      effort: form.effort.value,
-      description: form.description.value
-    };
-    props.createIssue(issue);
-    form.owner.value = "";
-    form.title.value = "";
-    form.due.value = "";
-    form.effort.value = "";
-    form.description.value = '';
-    setShowForm(false);
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "container-fluid bg-light"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "text-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Issue creation form"), showForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
-    name: "issueAdd",
-    onSubmit: handleSubmit
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    className: "form-control py-2 my-2",
-    type: "text",
-    name: "owner",
-    placeholder: "Owner"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    className: "form-control py-2 my-2",
-    type: "text",
-    name: "title",
-    placeholder: "Title"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    className: "form-control py-2 my-2",
-    type: "number",
-    name: "effort",
-    placeholder: "Effort Level"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    className: "form-control py-2 my-2",
-    type: "date",
-    name: "due",
-    placeholder: "Due Date"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("textarea", {
-    className: "form-control py-2 my-2",
-    name: "description",
-    placeholder: " Issue Description"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    className: "btn btn-success my-2",
-    type: "submit"
-  }, "Add")), !showForm && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "m-2 p-2 text-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    className: "btn btn-outline-primary",
-    onClick: () => setShowForm(true)
-  }, "Click to create a new issue ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
-    icon: "plus-circle"
-  })))));
-}
-
-/***/ }),
-
 /***/ "./src/browser/components/IssueDetail.jsx":
 /*!************************************************!*\
   !*** ./src/browser/components/IssueDetail.jsx ***!
@@ -319,7 +239,7 @@ function IssueDetail() {
   const loadData = () => {
     const query = `
         query {
-            issue(id:${id}){
+            issue(id:"${id}"){
                 description 
             }
         }
@@ -358,9 +278,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _specializedComponents_NumberInput_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../specializedComponents/NumberInput.jsx */ "./src/browser/specializedComponents/NumberInput.jsx");
-/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../env */ "./src/browser/env.js");
-
+/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../env */ "./src/browser/env.js");
 
 
 
@@ -371,6 +289,7 @@ function IssueEdit() {
   const {
     id
   } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useParams)();
+  const history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useHistory)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     loadData();
   }, [id]);
@@ -378,12 +297,12 @@ function IssueEdit() {
   const loadData = () => {
     const query = `
         query {
-            issue(id:${id}){
+            issue(id:"${id}"){
                 id effort due owner description status created title
             }
         }
         `;
-    fetch(_env__WEBPACK_IMPORTED_MODULE_3__.GRAPHQL_URI, {
+    fetch(_env__WEBPACK_IMPORTED_MODULE_2__.GRAPHQL_URI, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -392,8 +311,9 @@ function IssueEdit() {
         query
       })
     }).then(res => res.json()).then(result => {
-      //console.log(result);
-      setIssue(result.data.issue);
+      const resIssue = result.data.issue;
+      resIssue.due = resIssue.due ? new Date(resIssue.due).toISOString().split('T')[0] : '';
+      setIssue(resIssue);
     });
   };
 
@@ -408,12 +328,12 @@ function IssueEdit() {
     } = issue;
     const query = `
         mutation {
-            updateIssue(id:${id}, status:"${status}", description:"${description}", due:"${due}", owner:"${owner}", effort:${effort}){
+            updateIssue(id:"${id}", status:"${status}", description:"${description}", due:"${due}", owner:"${owner}", effort:${effort}){
                 title description id owner status due created effort
             }
         }
         `;
-    fetch(_env__WEBPACK_IMPORTED_MODULE_3__.GRAPHQL_URI, {
+    fetch(_env__WEBPACK_IMPORTED_MODULE_2__.GRAPHQL_URI, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -422,8 +342,9 @@ function IssueEdit() {
         query
       })
     }).then(res => res.json()).then(result => {
-      console.log(result);
-      setIssue(result.data.updateIssue);
+      const resIssue = result.data.updateIssue;
+      resIssue.due = resIssue.due ? new Date(resIssue.due).toISOString().split('T')[0] : '';
+      setIssue(resIssue);
     });
   }
 
@@ -440,9 +361,20 @@ function IssueEdit() {
     });
   }
 
+  const goBack = () => {
+    const answer = window.confirm('Are you sure you wish to leave this page?');
+
+    if (!answer) {
+      return;
+    }
+
+    history.push('/issues');
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, !issue ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "No issue with provided id was found") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, `Editing issue: ${id}`), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "Created:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.created ? issue.created : '')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "Status:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", {
+    className: "form-control my-2 py-2",
     name: "status",
     value: (_issue$status = issue.status) !== null && _issue$status !== void 0 ? _issue$status : '',
     onChange: onChange
@@ -455,144 +387,42 @@ function IssueEdit() {
   }, "Fixed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
     value: "Closed"
   }, "Closed")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "Owner:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    className: "form-control my-2 py-2",
     name: "owner",
     value: (_issue$owner = issue.owner) !== null && _issue$owner !== void 0 ? _issue$owner : '',
     onChange: onChange
   }), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "Effort:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    className: "form-control my-2 py-2",
     onChange: onChange,
     value: (_issue$effort = issue.effort) !== null && _issue$effort !== void 0 ? _issue$effort : '',
     name: "effort",
     type: "number"
   }), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "Due:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    className: "form-control my-2 py-2",
     type: "date",
     name: "due",
     value: (_issue$due = issue.due) !== null && _issue$due !== void 0 ? _issue$due : '',
     onChange: onChange
   }), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "Title:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    className: "form-control my-2 py-2",
     size: 50,
     name: "title",
     value: (_issue$title = issue.title) !== null && _issue$title !== void 0 ? _issue$title : '',
     onChange: onChange
   }), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "Description:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("textarea", {
+    className: "form-control my-2 py-2",
     rows: 8,
     cols: 50,
     name: "description",
     value: (_issue$description = issue.description) !== null && _issue$description !== void 0 ? _issue$description : '',
     onChange: onChange
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "btn btn-primary m-2 p-2",
     type: "submit"
-  }, "Submit"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: `/issues/${Number(id) - 1}/edit`
-  }, "Prev"), ' | ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: `/issues/${Number(id) + 1}/edit`
-  }, "Next")));
-}
-
-/***/ }),
-
-/***/ "./src/browser/components/IssueFilter.jsx":
-/*!************************************************!*\
-  !*** ./src/browser/components/IssueFilter.jsx ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ IssueFilter)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
-
-
-function IssueFilter() {
-  const [minEffort, setMinEffort] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const [maxEffort, setMaxEffort] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const [status, setStatus] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useHistory)();
-
-  const handleSelectionChange = e => {
-    console.log(e.target.name, e.target.value);
-
-    if (e.target.name === 'minEffort') {
-      setMinEffort(e.target.value);
-    }
-
-    if (e.target.name === 'maxEffort') {
-      setMaxEffort(e.target.value);
-    }
-
-    if (e.target.name === 'status') {
-      setStatus(e.target.value);
-    }
-  };
-
-  const resetFilter = () => {
-    setMaxEffort('');
-    setMinEffort('');
-    setStatus('');
-    history.push('/issues');
-  };
-
-  const applyFilter = () => {
-    history.push(`/issues?status=${status}&minEffort=${minEffort}&maxEffort=${maxEffort}`);
-  };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "row my-4 py-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "col-sm-12 col-lg-3 my-2 py-2"
-  }, "status :", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", {
-    style: {
-      border: '1px #0275d8 solid',
-      borderRadius: '25px',
-      outline: 'none'
-    },
-    name: "status",
-    onChange: handleSelectionChange
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
-    value: ""
-  }, "All"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
-    value: "New"
-  }, "New"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
-    value: "Assigned"
-  }, "Assigned"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
-    value: "Fixed"
-  }, "Fixed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
-    value: "Closed"
-  }, "Closed"))), '  ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "col-sm-12 col-lg-9 my-2 py-2"
-  }, "Effort Between ", ' :  ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    style: {
-      border: '1px #0275d8 solid',
-      borderRadius: '25px',
-      outline: 'none'
-    },
-    name: "minEffort",
-    value: minEffort,
-    type: "number",
-    onChange: handleSelectionChange
-  }), ' - ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    style: {
-      border: '1px #0275d8 solid',
-      borderRadius: '25px',
-      outline: 'none'
-    },
-    name: "maxEffort",
-    value: maxEffort,
-    type: "number",
-    onChange: handleSelectionChange
-  }), '    ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    className: "btn btn-primary",
-    onClick: applyFilter
-  }, "Apply"), ' <=> ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    className: "btn btn-warning",
-    onClick: resetFilter
-  }, "reset"))));
+  }, "Submit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "btn btn-warning m-2 p-2",
+    onClick: goBack
+  }, "Back to Issues")))))));
 }
 
 /***/ }),
@@ -601,95 +431,9 @@ function IssueFilter() {
 /*!**********************************************!*\
   !*** ./src/browser/components/IssueList.jsx ***!
   \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ IssueList)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IssueFilter.jsx */ "./src/browser/components/IssueFilter.jsx");
-/* harmony import */ var _IssueTable_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./IssueTable.jsx */ "./src/browser/components/IssueTable.jsx");
-/* harmony import */ var _IssueAdd_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./IssueAdd.jsx */ "./src/browser/components/IssueAdd.jsx");
-/* harmony import */ var _IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./IssueDetail.jsx */ "./src/browser/components/IssueDetail.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap */ "react-bootstrap");
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__);
-
-
-
-
-
-
-
-function IssueList(props) {
-  function useQuery() {
-    return new URLSearchParams((0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useLocation)().search);
-  }
-
-  const param = useQuery();
-  const status = param.get('status') ? param.get('status') : 'All';
-  const minEffort = param.get('minEffort') ? param.get('minEffort') : 1;
-  const maxEffort = param.get('maxEffort') ? param.get('maxEffort') : 100;
-  const [issues, setIssues] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-  const uri = 'http://localhost:3000/graphql';
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    loadData();
-  }, [status, minEffort, maxEffort]);
-
-  function loadData() {
-    const query = `query {
-issueList(status:"${status}", minEffort:${minEffort}, maxEffort:${maxEffort}) {
-id title status owner created effort due
-}
-}`;
-    fetch(uri, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        query
-      })
-    }).then(response => response.json()).then(result => {
-      console.log(result.data.issueList.map(i => i.effort));
-      setIssues(result.data.issueList);
-    });
-  }
-
-  function createIssue(issue) {
-    const query = `
-      mutation {
-        createIssue(owner:"${issue.owner}", title:"${issue.title}", due:"${issue.due}", effort:${issue.effort}, description:"${issue.description}"){
-          id title owner effort due
-        }
-      }
-      `;
-    fetch(uri, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        query
-      })
-    }).then(response => response.json()).then(result => {
-      loadData();
-    });
-  }
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueTable_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {
-    issues: issues
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueAdd_jsx__WEBPACK_IMPORTED_MODULE_3__.default, {
-    createIssue: createIssue
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
-    path: "/issues/:id",
-    component: _IssueDetail_jsx__WEBPACK_IMPORTED_MODULE_4__.default
-  }));
-}
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/src/browser/components/IssueList.jsx: Identifier 'status' has already been declared. (18:8)\n\n\u001b[0m \u001b[90m 16 |\u001b[39m   \u001b[0m\n\u001b[0m \u001b[90m 17 |\u001b[39m   \u001b[36mconst\u001b[39m param \u001b[33m=\u001b[39m useQuery()\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 18 |\u001b[39m   \u001b[36mconst\u001b[39m status \u001b[33m=\u001b[39m param\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'status'\u001b[39m) \u001b[33m?\u001b[39m param\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'status'\u001b[39m) \u001b[33m:\u001b[39m \u001b[32m'All'\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 19 |\u001b[39m   \u001b[36mconst\u001b[39m minEffort \u001b[33m=\u001b[39m param\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'minEffort'\u001b[39m) \u001b[33m?\u001b[39m \u001b[33mNumber\u001b[39m(param\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'minEffort'\u001b[39m)) \u001b[33m:\u001b[39m \u001b[35m1\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 20 |\u001b[39m   \u001b[36mconst\u001b[39m maxEffort \u001b[33m=\u001b[39m param\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'maxEffort'\u001b[39m) \u001b[33m?\u001b[39m \u001b[33mNumber\u001b[39m(param\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'maxEffort'\u001b[39m)) \u001b[33m:\u001b[39m \u001b[35m100\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 |\u001b[39m\u001b[0m\n    at Object._raise (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:810:17)\n    at Object.raiseWithData (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:803:17)\n    at Object.raise (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:764:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:1490:12)\n    at ScopeHandler.declareName (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:1456:12)\n    at Object.checkLVal (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:10493:24)\n    at Object.parseVarId (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:13243:10)\n    at Object.parseVar (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:13218:12)\n    at Object.parseVarStatement (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:13035:10)\n    at Object.parseStatementContent (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:12618:21)");
 
 /***/ }),
 
@@ -706,126 +450,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../env */ "./src/browser/env.js");
+
 
 function IssueReport() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Placeholder for issue report");
-}
+  const [reports, setReports] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    loadData();
+  }, []);
 
-/***/ }),
-
-/***/ "./src/browser/components/IssueRow.jsx":
-/*!*********************************************!*\
-  !*** ./src/browser/components/IssueRow.jsx ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ IssueRow)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../env */ "./src/browser/env.js");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__);
-
-
-
-
-function IssueRow(props) {
-  const history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useHistory)();
-  const issue = props.issue;
-
-  const deleteIssueById = () => {
+  const loadData = () => {
     const query = `
-      mutation {
-          deleteIssue(id:${issue.id}){
-              id title
-          }
-      }
-      `;
-    fetch(_env__WEBPACK_IMPORTED_MODULE_2__.GRAPHQL_URI, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        query
-      })
-    }).then(res => res.json()).then(result => {
-      history.push('/');
-    });
-  };
-
-  const closeIssueById = () => {
-    const query = `
-    mutation {
-        closeIssue(id:${issue.id}){
-            id title
+        query {
+            getReport {
+                reporter reporter_new reporter_fixed reporter_closed reporter_assigned
+            }
         }
-    }
-    `;
-    fetch(_env__WEBPACK_IMPORTED_MODULE_2__.GRAPHQL_URI, {
+        `;
+    fetch(_env__WEBPACK_IMPORTED_MODULE_1__.GRAPHQL_URI, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         query
       })
     }).then(res => res.json()).then(result => {
-      history.push('/');
+      setReports(result.data.getReport); //console.log(result.data.getReport)
     });
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.owner), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.created), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.effort), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.due ? issue.due : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: `/issues/${issue.id}/edit`
-  }, "Edit"), ' | ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
-    to: `/issues/${issue.id}`
-  }, "Details"), ' - ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    className: "btn btn-warning",
-    onClick: () => closeIssueById()
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
-    icon: "times-circle"
-  })), ' | ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-    className: "btn btn-danger",
-    onClick: () => deleteIssueById()
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
-    icon: "trash"
-  }))));
-}
+  const renderer = () => {
+    return reports.map(report => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", {
+      key: report.reporter
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, report.reporter), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, report.reporter_new), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, report.reporter_assigned), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, report.reporter_fixed), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, report.reporter_closed)));
+  };
 
-/***/ }),
-
-/***/ "./src/browser/components/IssueTable.jsx":
-/*!***********************************************!*\
-  !*** ./src/browser/components/IssueTable.jsx ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ IssueTable)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _IssueRow_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IssueRow.jsx */ "./src/browser/components/IssueRow.jsx");
-
-
-function IssueTable(props) {
-  const issueRows = props.issues.map(issue => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueRow_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {
-    key: issue.id,
-    issue: issue
-  }));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "table-responsive my-2 py-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", {
-    className: "table table-striped table-bordered table-hover"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Owner"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Created"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Effort"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Due Date"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Action"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null, issueRows)));
+    className: "my-4 p-2 table-responsive "
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Complete Platform Issue Report Statistics")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", {
+    className: "table table-bordered table-hover table-striped"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", {
+    scope: "col"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", {
+    scope: "col"
+  }, "New"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", {
+    scope: "col"
+  }, "Assigned"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", {
+    scope: "col"
+  }, "Fixed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", {
+    scope: "col"
+  }, "Closed"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null, renderer())));
 }
 
 /***/ }),
@@ -868,48 +545,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "GRAPHQL_URI": () => (/* binding */ GRAPHQL_URI)
 /* harmony export */ });
 const GRAPHQL_URI = "http://localhost:3000/graphql";
-
-/***/ }),
-
-/***/ "./src/browser/specializedComponents/NumberInput.jsx":
-/*!***********************************************************!*\
-  !*** ./src/browser/specializedComponents/NumberInput.jsx ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ NumberInput)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-function NumberInput(props) {
-  //const {value,onchange} = props
-  //console.log(value)
-  //const [numValue, setValue] = useState(0);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    console.log(props);
-    setValue(props.value);
-  }); //console.log(numValue)
-
-  const handleOnchange = e => {
-    setValue(e.target.value);
-  };
-
-  const handleOnBlur = e => {
-    console.log(e.target.value);
-    props.onchange(e, e.target.value);
-  };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
-    value: props.value,
-    onChange: handleOnchange,
-    type: "number",
-    onBlur: handleOnBlur
-  }));
-}
 
 /***/ }),
 
@@ -997,17 +632,6 @@ const serverConfig = {
   devtool: 'source-map'
 };
 module.exports = [browserConfig, serverConfig];
-
-/***/ }),
-
-/***/ "@fortawesome/react-fontawesome":
-/*!*************************************************!*\
-  !*** external "@fortawesome/react-fontawesome" ***!
-  \*************************************************/
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("@fortawesome/react-fontawesome");;
 
 /***/ }),
 

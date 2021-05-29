@@ -1,18 +1,31 @@
 type Query {
   about: String!
-  issueList(status:String, minEffort:Int, maxEffort:Int): [Issue!]!
-  issue(id:Int!) : Issue
+  issueList(page:Int, status:String, minEffort:Int, maxEffort:Int): IssueQueryList!
+  issue(id:String!) : Issue!
+  getReport: [Report!]!
 }
 type Mutation {
   setAboutMessage(message: String!): String
-  createIssue(title:String!, owner:String!, effort:Int, due:String!, description:String!): Issue
-  updateIssue(id: Int, status:String, owner:String, effort:Int, description:String, due:String): Issue
-  deleteIssue(id:Int!):Issue
-  closeIssue(id:Int!) : Issue
+  createIssue(title:String!, owner:String!, effort:Int, due:String!, description:String!): Issue!
+  updateIssue(id: String, status:String, owner:String, effort:Int, description:String, due:String): Issue!
+  deleteIssue(id:String!):Issue!
+  closeIssue(id:String!) : Issue!
+  
 }
-
+type Report {
+  reporter: String!
+  reporter_new: Int!
+  reporter_fixed: Int!
+  reporter_closed: Int!
+  reporter_assigned: Int!
+}
+type IssueQueryList {
+  issues: [Issue!]!
+  currpage: Int!
+  lastpage: Int!
+}
 type Issue {
-  id: Int!
+  id: String!
   title: String!
   status: String!
   owner: String!
@@ -20,4 +33,5 @@ type Issue {
   created: String!
   due: String!
   description: String!
+
 }

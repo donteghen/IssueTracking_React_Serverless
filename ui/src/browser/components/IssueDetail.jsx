@@ -12,7 +12,7 @@ export default function IssueDetail () {
     const loadData = () =>{
         const query = `
         query {
-            issue(id:${id}){
+            issue(id:"${id}"){
                 description 
             }
         }
