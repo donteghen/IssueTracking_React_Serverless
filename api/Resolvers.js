@@ -8,21 +8,21 @@ module.exports = {
     Query : {
         about : () => "Issue Tracker API v1.0",
         issueList : (_, {page=0, status='All', minEffort=1, maxEffort=100}) => {
-            console.log(page, status, minEffort, maxEffort)
+            //console.log(page, status, minEffort, maxEffort)
             
             if(status !== undefined && status !== 'All'){
-                //console.log('hhhhhhhh')
+                //console.log('variable')
                 const issuesFilter = issuesDB.filter(issue => issue.status === status && issue.effort >= minEffort && issue.effort <= maxEffort)
                 const issues = issuesFilter.filter((issue, index, array) => index >= page*10 && index < (page * 10 + 10) && index < array.length)
                 const lastpage = Math.ceil(issuesFilter.length/10);
                 const currpage = page
                 return {issues, lastpage, currpage}
             }
-            if(status && status === 'All'){
-                console.log('hhhhhhhh')
+            if(status === 'All'){
+                //console.log('All')
                 const issuesFilter = issuesDB.filter(issue =>issue.effort >= minEffort && issue.effort <= maxEffort)
                 const issues = issuesFilter.filter((issue, index, array) => index >= page*10 && index < (page * 10 + 10) && index < array.length)
-                console.log(issues.length)
+                //console.log(issues.length)
                 const lastpage = Math.ceil(issuesFilter.length/10);
                 const currpage = page
                 return {issues, lastpage, currpage}
@@ -73,18 +73,23 @@ module.exports = {
             return newIssue
         },
         updateIssue : (_, {id, status, due, effort,description, owner}) =>{
-            console.log(id,status)
+            //console.log(id,status, effort, typeof(due))
             const updatableIssue = issuesDB.find(issue => issue.id === id)
             if(updatableIssue){
+                //console.log(updatableIssue.due, )
                 updatableIssue.status = status ?? updatableIssue.status  
                 updatableIssue.effort = effort ?? updatableIssue.effort  
                 updatableIssue.due = new Date(due).toLocaleDateString(undefined, options) ?? updatableIssue.due  
                 updatableIssue.owner = owner ?? updatableIssue.owner  
                 updatableIssue.description = description ?? updatableIssue.description  
+
+                issuesDB = issuesDB.filter(issue => issue.id !== id)
+                issuesDB.unshift(updatableIssue)
+               
+                return updatableIssue;
             }
             
-            issuesDB = issuesDB.filter(issue => issue.id !== id).concat(updatableIssue)
-            return updatableIssue;
+            
         },
         deleteIssue : (_, {id}) =>{
             if(id){
@@ -100,9 +105,11 @@ module.exports = {
                 const closableIssue = issuesDB.find(issue => issue.id === id);
                 if(closableIssue){
                     closableIssue.status = 'Closed'
+
+                    issuesDB = issuesDB.filter(issue => issue.id !== id).concat(closableIssue)
+                    return closableIssue;
                 }
-                issuesDB = issuesDB.filter(issue => issue.id !== id).concat(closableIssue)
-                return closableIssue;
+                
             }
         },
     }

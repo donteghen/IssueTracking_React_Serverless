@@ -2,32 +2,33 @@ import React, { useEffect, useState } from 'react'
 import IssueFilter from './IssueFilter.jsx';
 import IssueTable from './IssueTable.jsx';
 import IssueAdd from './IssueAdd.jsx';
-import IssueDetail from './IssueDetail.jsx';
-import {Route, useLocation} from 'react-router-dom';
+import { GRAPHQL_URI } from '../env.js';
 
-export default function IssueList (props){ 
+export default function IssueList (){ 
+  const [lastPage, setLastPage] = useState(1)
   const [page, setPage] = useState(0)
   const [minEffort, setMinEffort] = useState(1)
   const [maxEffort, setMaxEffort] = useState(100)
   const [status, setStatus] = useState('All')
-  function useQuery() {
-    return new URLSearchParams(useLocation().search)
-  }
-  
-  // const param = useQuery()
-  // const status = param.get('status') ? param.get('status') : 'All'
-  // const minEffort = param.get('minEffort') ? Number(param.get('minEffort')) : 1
-  // const maxEffort = param.get('maxEffort') ? Number(param.get('maxEffort')) : 100
-
-    const [issues, setIssues] = useState([])
-     const uri = 'http://localhost:3000/graphql' 
+  const [issues, setIssues] = useState([])
+     
     useEffect(() => 
     {
-      console.log(status, minEffort, maxEffort)
-      loadData();
-      
-  },[]) 
+      console.log(lastPage, page)
+      if(page >= 0 && page <= lastPage){
+        loadData()
+      }
+      //console.log(lastPage, page)
+  },[page]) 
+  const applyFilterReload = () => {
+    //console.log(status, minEffort, maxEffort)
+    loadData()
+    //console.log(lastPage, page)
+  }
+  
      function loadData() {
+      // console.log(page, status, minEffort, maxEffort)
+      // console.log(typeof(page), typeof(status), typeof(minEffort), typeof(maxEffort))
       const query = 
       `query {
 issueList(page:${page}, status:"${status}", minEffort:${minEffort}, maxEffort:${maxEffort}) {
@@ -37,15 +38,16 @@ issues {
 currpage lastpage
 }
 }`;
-      fetch(uri, {
+      fetch(GRAPHQL_URI, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ query })
       }).then(response => response.json())
       .then(result => {
-        console.log(result.data.issueList)
+        console.log(result.data.issueList.currpage)
         setIssues(result.data.issueList.issues)
-        setPage(Math.floor(result.data.issueList.dbcount/10))
+        setPage(result.data.issueList.currpage)
+        setLastPage(result.data.issueList.lastpage)
       })
   }
     function createIssue(issue) {
@@ -56,7 +58,7 @@ currpage lastpage
         }
       }
       `;
-      fetch(uri, {
+      fetch(GRAPHQL_URI, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ query})
@@ -70,9 +72,11 @@ currpage lastpage
       return (
         <React.Fragment>
            
-          <IssueFilter />
+          <IssueFilter St={status} MaxEf={maxEffort} MinEf={minEffort} setMaxEf={setMaxEffort} 
+          setMinEf={setMinEffort} setSt={setStatus} applyload={applyFilterReload}/>
          
-          <IssueTable Page={page} SetPage={setPage} issues={issues} />
+          <IssueTable Page={page} SetPage={setPage} LastPage={lastPage}
+           issues={issues} />
           
           <IssueAdd createIssue={createIssue} />
           

@@ -147,6 +147,66 @@ function Content() {
 
 /***/ }),
 
+/***/ "./src/browser/components/Footer.js":
+/*!******************************************!*\
+  !*** ./src/browser/components/Footer.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Footer)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function Footer() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("footer", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "social"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "#"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+    icon: "instagram"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "#"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+    icon: "snapchat"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "#"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+    icon: "twitter"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "#"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+    icon: "facebook-square"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+    className: "list-inline"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+    to: "/",
+    className: "list-inline-item"
+  }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+    to: "/issues",
+    className: "list-inline-item"
+  }, "Issues"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+    to: "/report",
+    className: "list-inline-item"
+  }, "Report"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+    to: "/about",
+    className: "list-inline-item"
+  }, "About")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "copyright"
+  }, "Company Name \xA9 2021"));
+}
+
+/***/ }),
+
 /***/ "./src/browser/components/Header.jsx":
 /*!*******************************************!*\
   !*** ./src/browser/components/Header.jsx ***!
@@ -171,40 +231,147 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Header() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Navbar, {
-    bg: "light",
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      boxShadow: '0 4px 6px -6px black'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Navbar, {
     expand: "lg",
-    className: "d-flex"
+    className: "bg-light justify-content-between"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Navbar.Brand, {
-    className: "justify-content-start mx-1 px-1"
+    className: "mx-1 px-1"
   }, "Issue Tracker"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Navbar.Toggle, {
     "aria-controls": "navbar-nav"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Navbar.Collapse, {
-    id: "navbar-nav",
-    className: "d-flex"
+    id: "navbar-nav"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Nav, {
-    className: "d-flex justify-content-middle"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_3__.LinkContainer, {
+    className: "justify-content-end",
+    activeKey: "/home"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Nav.Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/",
-    className: "mx-2 px-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.NavItem, null, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_3__.LinkContainer, {
+    style: {
+      textDecoration: 'none',
+      padding: '8px',
+      margin: '2px',
+      color: '#0275d8'
+    }
+  }, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Nav.Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/issues",
-    className: "mx-2 px-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.NavItem, null, "Issues List")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_3__.LinkContainer, {
+    style: {
+      textDecoration: 'none',
+      padding: '8px',
+      margin: '2px',
+      color: '#0275d8'
+    }
+  }, "Issue List")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Nav.Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/report",
-    className: "mx-2 px-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.NavItem, null, "Report")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_3__.LinkContainer, {
+    style: {
+      textDecoration: 'none',
+      padding: '8px',
+      margin: '2px',
+      color: '#0275d8'
+    }
+  }, "Report")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Nav.Item, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/about",
-    className: "mx-2 px-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.NavItem, null, "About"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Nav, {
-    className: "d-flex justify-content-end"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_3__.LinkContainer, {
-    to: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.NavItem, null, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_3__.LinkContainer, {
-    to: "/issues"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.NavItem, null, "Issues List")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_3__.LinkContainer, {
-    to: "/report"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.NavItem, null, "Report")))));
+    style: {
+      textDecoration: 'none',
+      padding: '8px',
+      margin: '2px',
+      color: '#0275d8'
+    }
+  }, "About"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null));
+}
+
+/***/ }),
+
+/***/ "./src/browser/components/IssueAdd.jsx":
+/*!*********************************************!*\
+  !*** ./src/browser/components/IssueAdd.jsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ IssueAdd)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "react-bootstrap");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function IssueAdd(props) {
+  const [showForm, setShowForm] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.forms.issueAdd;
+    const issue = {
+      owner: form.owner.value,
+      title: form.title.value,
+      due: form.due.value,
+      effort: form.effort.value,
+      description: form.description.value
+    };
+    props.createIssue(issue);
+    form.owner.value = "";
+    form.title.value = "";
+    form.due.value = "";
+    form.effort.value = "";
+    form.description.value = '';
+    setShowForm(false);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal, {
+    show: showForm,
+    onHide: () => setShowForm(false),
+    size: "xl"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal.Header, {
+    closeButton: true
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Issue creation form")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal.Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "container-fluid"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", {
+    name: "issueAdd",
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    className: "form-control py-2 my-2",
+    type: "text",
+    name: "owner",
+    placeholder: "Owner"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    className: "form-control py-2 my-2",
+    type: "text",
+    name: "title",
+    placeholder: "Title"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    className: "form-control py-2 my-2",
+    type: "number",
+    name: "effort",
+    placeholder: "Effort Level"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    className: "form-control py-2 my-2",
+    type: "date",
+    name: "due",
+    placeholder: "Due Date"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("textarea", {
+    className: "form-control py-2 my-2",
+    name: "description",
+    placeholder: " Issue Description"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "btn btn-primary btn-block btn-lg",
+    type: "submit"
+  }, "Add"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "m-2 p-2 text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "btn btn-outline-primary",
+    onClick: () => setShowForm(true)
+  }, "Click to create a new issue ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_1__.FontAwesomeIcon, {
+    icon: "plus-circle"
+  }))));
 }
 
 /***/ }),
@@ -427,13 +594,237 @@ function IssueEdit() {
 
 /***/ }),
 
+/***/ "./src/browser/components/IssueFilter.jsx":
+/*!************************************************!*\
+  !*** ./src/browser/components/IssueFilter.jsx ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ IssueFilter)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function IssueFilter({
+  setMinEf,
+  setMaxEf,
+  setSt,
+  St,
+  MaxEf,
+  MinEf,
+  applyload
+}) {
+  const [minEffort, setMinEffort] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const [maxEffort, setMaxEffort] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const [status, setStatus] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    setMaxEffort(MaxEf);
+    setMinEffort(MinEf);
+    setStatus(St);
+  });
+
+  const handleSelectionChange = e => {
+    console.log(e.target.name, e.target.value);
+
+    if (e.target.name === 'minEffort') {
+      setMinEf(Number(e.target.value));
+    }
+
+    if (e.target.name === 'maxEffort') {
+      setMaxEf(Number(e.target.value));
+    }
+
+    if (e.target.name === 'status') {
+      setSt(e.target.value);
+    }
+  };
+
+  const resetFilter = () => {
+    setMaxEffort('');
+    setMinEffort('');
+    setStatus('');
+    history.push('/issues');
+  };
+
+  const applyFilter = () => {
+    applyload();
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "container-fluid"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "row my-2 py-1"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "col-sm-12 col-lg-3 my-2"
+  }, "status :", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", {
+    value: status,
+    style: {
+      border: '1px #0275d8 solid',
+      borderRadius: '25px',
+      outline: 'none',
+      width: '150px',
+      height: '50px'
+    },
+    name: "status",
+    onChange: handleSelectionChange
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: ""
+  }, "All"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "New"
+  }, "New"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Assigned"
+  }, "Assigned"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Fixed"
+  }, "Fixed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", {
+    value: "Closed"
+  }, "Closed"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "col-sm-12 col-lg-9 my-2"
+  }, "Effort Between ", ' :  ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    style: {
+      border: '1px #0275d8 solid',
+      borderRadius: '25px',
+      outline: 'none',
+      width: '80px',
+      height: '50px'
+    },
+    name: "minEffort",
+    value: minEffort,
+    type: "number",
+    onChange: handleSelectionChange
+  }), ' - ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    style: {
+      border: '1px #0275d8 solid',
+      borderRadius: '25px',
+      outline: 'none',
+      width: '80px',
+      height: '50px'
+    },
+    name: "maxEffort",
+    value: maxEffort,
+    type: "number",
+    onChange: handleSelectionChange
+  }), '    ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "btn btn-primary btn-lg",
+    onClick: applyFilter
+  }, "Apply"), '  ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "btn btn-warning btn-lg",
+    onClick: resetFilter
+  }, "reset"))));
+}
+
+/***/ }),
+
 /***/ "./src/browser/components/IssueList.jsx":
 /*!**********************************************!*\
   !*** ./src/browser/components/IssueList.jsx ***!
   \**********************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/src/browser/components/IssueList.jsx: Identifier 'status' has already been declared. (18:8)\n\n\u001b[0m \u001b[90m 16 |\u001b[39m   \u001b[0m\n\u001b[0m \u001b[90m 17 |\u001b[39m   \u001b[36mconst\u001b[39m param \u001b[33m=\u001b[39m useQuery()\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 18 |\u001b[39m   \u001b[36mconst\u001b[39m status \u001b[33m=\u001b[39m param\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'status'\u001b[39m) \u001b[33m?\u001b[39m param\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'status'\u001b[39m) \u001b[33m:\u001b[39m \u001b[32m'All'\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 19 |\u001b[39m   \u001b[36mconst\u001b[39m minEffort \u001b[33m=\u001b[39m param\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'minEffort'\u001b[39m) \u001b[33m?\u001b[39m \u001b[33mNumber\u001b[39m(param\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'minEffort'\u001b[39m)) \u001b[33m:\u001b[39m \u001b[35m1\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 20 |\u001b[39m   \u001b[36mconst\u001b[39m maxEffort \u001b[33m=\u001b[39m param\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'maxEffort'\u001b[39m) \u001b[33m?\u001b[39m \u001b[33mNumber\u001b[39m(param\u001b[33m.\u001b[39m\u001b[36mget\u001b[39m(\u001b[32m'maxEffort'\u001b[39m)) \u001b[33m:\u001b[39m \u001b[35m100\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 |\u001b[39m\u001b[0m\n    at Object._raise (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:810:17)\n    at Object.raiseWithData (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:803:17)\n    at Object.raise (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:764:17)\n    at ScopeHandler.checkRedeclarationInScope (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:1490:12)\n    at ScopeHandler.declareName (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:1456:12)\n    at Object.checkLVal (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:10493:24)\n    at Object.parseVarId (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:13243:10)\n    at Object.parseVar (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:13218:12)\n    at Object.parseVarStatement (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:13035:10)\n    at Object.parseStatementContent (/Users/donaldteghen/Desktop/React-pro-projects/Hello-world-serverless/ui/node_modules/@babel/parser/lib/index.js:12618:21)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ IssueList)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IssueFilter.jsx */ "./src/browser/components/IssueFilter.jsx");
+/* harmony import */ var _IssueTable_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./IssueTable.jsx */ "./src/browser/components/IssueTable.jsx");
+/* harmony import */ var _IssueAdd_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./IssueAdd.jsx */ "./src/browser/components/IssueAdd.jsx");
+/* harmony import */ var _env_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../env.js */ "./src/browser/env.js");
+
+
+
+
+
+function IssueList() {
+  const [lastPage, setLastPage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
+  const [page, setPage] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
+  const [minEffort, setMinEffort] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1);
+  const [maxEffort, setMaxEffort] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(100);
+  const [status, setStatus] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('All');
+  const [issues, setIssues] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    console.log(lastPage, page);
+
+    if (page >= 0 && page <= lastPage) {
+      loadData();
+    } //console.log(lastPage, page)
+
+  }, [page]);
+
+  const applyFilterReload = () => {
+    //console.log(status, minEffort, maxEffort)
+    loadData(); //console.log(lastPage, page)
+  };
+
+  function loadData() {
+    // console.log(page, status, minEffort, maxEffort)
+    // console.log(typeof(page), typeof(status), typeof(minEffort), typeof(maxEffort))
+    const query = `query {
+issueList(page:${page}, status:"${status}", minEffort:${minEffort}, maxEffort:${maxEffort}) {
+issues {
+  id title status owner created effort due
+}
+currpage lastpage
+}
+}`;
+    fetch(_env_js__WEBPACK_IMPORTED_MODULE_4__.GRAPHQL_URI, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query
+      })
+    }).then(response => response.json()).then(result => {
+      console.log(result.data.issueList.currpage);
+      setIssues(result.data.issueList.issues);
+      setPage(result.data.issueList.currpage);
+      setLastPage(result.data.issueList.lastpage);
+    });
+  }
+
+  function createIssue(issue) {
+    const query = `
+      mutation {
+        createIssue(owner:"${issue.owner}", title:"${issue.title}", due:"${issue.due}", effort:${issue.effort}, description:"${issue.description}"){
+          id title owner effort due
+        }
+      }
+      `;
+    fetch(_env_js__WEBPACK_IMPORTED_MODULE_4__.GRAPHQL_URI, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query
+      })
+    }).then(response => response.json()).then(result => {
+      loadData();
+    });
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueFilter_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {
+    St: status,
+    MaxEf: maxEffort,
+    MinEf: minEffort,
+    setMaxEf: setMaxEffort,
+    setMinEf: setMinEffort,
+    setSt: setStatus,
+    applyload: applyFilterReload
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueTable_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {
+    Page: page,
+    SetPage: setPage,
+    LastPage: lastPage,
+    issues: issues
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueAdd_jsx__WEBPACK_IMPORTED_MODULE_3__.default, {
+    createIssue: createIssue
+  }));
+}
 
 /***/ }),
 
@@ -507,6 +898,160 @@ function IssueReport() {
 
 /***/ }),
 
+/***/ "./src/browser/components/IssueRow.jsx":
+/*!*********************************************!*\
+  !*** ./src/browser/components/IssueRow.jsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ IssueRow)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../env */ "./src/browser/env.js");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+function IssueRow(props) {
+  const history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useHistory)();
+  const issue = props.issue;
+
+  const deleteIssueById = () => {
+    const query = `
+      mutation {
+          deleteIssue(id:"${issue.id}"){
+              id title
+          }
+      }
+      `;
+    fetch(_env__WEBPACK_IMPORTED_MODULE_2__.GRAPHQL_URI, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query
+      })
+    }).then(res => res.json()).then(result => {
+      history.push('/');
+    });
+  };
+
+  const closeIssueById = () => {
+    const query = `
+    mutation {
+        closeIssue(id:"${issue.id}"){
+            id title
+        }
+    }
+    `;
+    fetch(_env__WEBPACK_IMPORTED_MODULE_2__.GRAPHQL_URI, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query
+      })
+    }).then(res => res.json()).then(result => {
+      history.push('/');
+    });
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.title.substring(0, 40) + '...'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.owner), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.effort), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.created), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, issue.due ? issue.due : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: `/issues/${issue.id}/edit`
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+    icon: "edit"
+  })), ' | ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink, {
+    to: `/issues/${issue.id}`
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+    icon: "eye"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "btn btn-warning",
+    onClick: () => closeIssueById()
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+    icon: "times-circle"
+  })), ' | ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "btn btn-danger",
+    onClick: () => deleteIssueById()
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+    icon: "trash"
+  }))));
+}
+
+/***/ }),
+
+/***/ "./src/browser/components/IssueTable.jsx":
+/*!***********************************************!*\
+  !*** ./src/browser/components/IssueTable.jsx ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ IssueTable)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _IssueRow_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IssueRow.jsx */ "./src/browser/components/IssueRow.jsx");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "@fortawesome/react-fontawesome");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function IssueTable({
+  issues,
+  Page,
+  SetPage,
+  LastPage
+}) {
+  const issueRows = issues.map(issue => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_IssueRow_jsx__WEBPACK_IMPORTED_MODULE_1__.default, {
+    key: issue.id,
+    issue: issue
+  }));
+
+  function handlePrev() {
+    if (Page <= 0) return;
+    SetPage(Page - 1);
+  }
+
+  function handleNext() {
+    if (Page >= LastPage - 1) return;
+    SetPage(Page + 1);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "table-responsive my-2 p-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", {
+    className: "table table-striped table-bordered table-hover"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Owner"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Created"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Effort"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Due Date"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "More"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Action"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null, issueRows)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "btn btn-danger m-2 p-2",
+    onClick: handlePrev
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "mx-2 px-1"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+    icon: "arrow-circle-left"
+  })), "Prev"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "btn btn-danger m-2 p-2",
+    onClick: handleNext
+  }, "Next", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: "mx-2 px-1"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__.FontAwesomeIcon, {
+    icon: "arrow-right"
+  })))));
+}
+
+/***/ }),
+
 /***/ "./src/browser/components/Page.jsx":
 /*!*****************************************!*\
   !*** ./src/browser/components/Page.jsx ***!
@@ -522,13 +1067,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Header_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Header.jsx */ "./src/browser/components/Header.jsx");
 /* harmony import */ var _Content_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Content.jsx */ "./src/browser/components/Content.jsx");
+/* harmony import */ var _Footer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Footer.js */ "./src/browser/components/Footer.js");
+
 
 
 
 function Page() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: ""
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Header_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Content_jsx__WEBPACK_IMPORTED_MODULE_2__.default, null));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Header_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Content_jsx__WEBPACK_IMPORTED_MODULE_2__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Footer_js__WEBPACK_IMPORTED_MODULE_3__.default, null));
 }
 
 /***/ }),
@@ -632,6 +1179,17 @@ const serverConfig = {
   devtool: 'source-map'
 };
 module.exports = [browserConfig, serverConfig];
+
+/***/ }),
+
+/***/ "@fortawesome/react-fontawesome":
+/*!*************************************************!*\
+  !*** external "@fortawesome/react-fontawesome" ***!
+  \*************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@fortawesome/react-fontawesome");;
 
 /***/ }),
 
