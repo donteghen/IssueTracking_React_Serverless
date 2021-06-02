@@ -8,9 +8,9 @@ module.exports = {
     Query : {
         about : () => "Issue Tracker API v1.0",
         issueList : (_, {page=0, status='All', minEffort=1, maxEffort=100}) => {
-            //console.log(page, status, minEffort, maxEffort)
+            console.log(page, status, minEffort, maxEffort)
             
-            if(status !== undefined && status !== 'All'){
+            if(status !== undefined && status !== 'All'){  
                 //console.log('variable')
                 const issuesFilter = issuesDB.filter(issue => issue.status === status && issue.effort >= minEffort && issue.effort <= maxEffort)
                 const issues = issuesFilter.filter((issue, index, array) => index >= page*10 && index < (page * 10 + 10) && index < array.length)

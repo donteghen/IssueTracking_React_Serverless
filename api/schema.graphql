@@ -3,14 +3,14 @@ type Query {
   issueList(page:Int, status:String, minEffort:Int, maxEffort:Int): IssueQueryList!
   issue(id:String!) : Issue!
   getReport: [Report!]!
-  search(value:String) : issue
+  search(value:String) : Issue
 }
 type Mutation {
   setAboutMessage(message: String!): String
   createIssue(title:String!, owner:String!, effort:Int, due:String!, description:String!): Issue
   updateIssue(id: String, status:String, owner:String, effort:Int, description:String, due:String): Issue
   deleteIssue(id:String!):Issue
-  
+  closeIssue(id:String!):Issue
 }
 type Report {
   reporter: String!
