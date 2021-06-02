@@ -40,7 +40,8 @@ browserConfig = {
                 {loader : 'style-loader'},
                 {loader : 'css-loader'}
             ]
-        }
+        },
+        
         ]
     },
     optimization: {

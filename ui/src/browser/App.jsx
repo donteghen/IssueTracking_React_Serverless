@@ -10,9 +10,10 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faCoffee , faTimesCircle, faArrowCircleLeft, faArrowAltCircleRight, faArrowRight,
-  faTrash, faPlusCircle, faEdit, faEye} from '@fortawesome/free-solid-svg-icons'
+  faTrash, faPlusCircle, faEdit, faEye, faSignInAlt} from '@fortawesome/free-solid-svg-icons'
 
-library.add(fab, faCheckSquare, faCoffee, faTimesCircle, faTrash, faPlusCircle, faEye, faEdit, faArrowAltCircleRight, faArrowCircleLeft, faArrowRight)
+library.add(fab, faCheckSquare, faCoffee, faTimesCircle, faTrash, faPlusCircle, faEye, faSignInAlt,
+  faEdit, faArrowAltCircleRight, faArrowCircleLeft, faArrowRight)
 
 const element = <Router>
   <Page/>
