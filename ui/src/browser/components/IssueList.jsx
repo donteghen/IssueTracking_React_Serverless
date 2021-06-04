@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import IssueFilter from './IssueFilter.jsx';
 import IssueTable from './IssueTable.jsx';
 import IssueAdd from './IssueAdd.jsx';
+import {Spinner, Modal} from 'react-bootstrap'
 import { GRAPHQL_URI } from '../env.js';
 
 export default function IssueList (){ 
+  const [loading, setLoading] = useState(false)
   const [lastPage, setLastPage] = useState(1)
   const [page, setPage] = useState(0)
   const [minEffort, setMinEffort] = useState(1)
@@ -14,21 +16,17 @@ export default function IssueList (){
      
     useEffect(() => 
     {
-      console.log(lastPage, page)
       if(page >= 0 && page <= lastPage){
         loadData()
       }
-      //console.log(lastPage, page)
+     
   },[page]) 
   const applyFilterReload = () => {
-    //console.log(status, minEffort, maxEffort)
     loadData()
-    //console.log(lastPage, page)
   }
   
      function loadData() {
-      // console.log(page, status, minEffort, maxEffort)
-      // console.log(typeof(page), typeof(status), typeof(minEffort), typeof(maxEffort))
+       setLoading(true)
       const query = 
       `query {
 issueList(page:${page}, status:"${status}", minEffort:${minEffort}, maxEffort:${maxEffort}) {
@@ -44,11 +42,14 @@ currpage lastpage
         body: JSON.stringify({ query })
       }).then(response => response.json())
       .then(result => {
-        console.log(result.data.issueList.currpage)
+        //console.log(result.data.issueList.currpage)
+        
         setIssues(result.data.issueList.issues)
         setPage(result.data.issueList.currpage)
         setLastPage(result.data.issueList.lastpage)
+        setLoading(false)
       })
+      .catch(error => console.log(error))
   }
     function createIssue(issue) {
       const query = `
@@ -68,7 +69,21 @@ currpage lastpage
       })
       
   }
-     
+     if(loading){
+       return (
+
+      <Modal show ={loading} onHide={() => setLoading(false)} size='sm'>
+                  
+                    <Modal.Body>
+                    <div className='container text-center bg-light' >
+                    <Spinner animation="border" role="status" size='' variant='primary' >
+                    <span className="sr-only">Loading...</span>
+                  </Spinner> Loading...
+                  </div>
+                  </Modal.Body>
+            </Modal>
+       )
+     }
       return (
         <React.Fragment>
            

@@ -10,7 +10,6 @@ console.log('hhh')
 const server = new ApolloServer({
     typeDefs : fs.readFileSync('./schema.graphql', 'utf8'),
     resolvers,
-    //context: ({req}) => console.log(req.body)
 })
 
 server.applyMiddleware({app, path:'/graphql', cors:false})

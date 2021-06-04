@@ -8,7 +8,7 @@ module.exports = {
     Query : {
         about : () => "Issue Tracker API v1.0",
         issueList : (_, {page=0, status='All', minEffort=1, maxEffort=100}) => {
-            console.log(page, status, minEffort, maxEffort)
+            //console.log(page, status, minEffort, maxEffort)
             
             if(status !== undefined && status !== 'All'){  
                 //console.log('variable')
@@ -58,7 +58,8 @@ module.exports = {
     },
     Mutation: {
         setAboutMessage : (_, {message}) => message,
-        createIssue : (_, {title, effort, due, owner, description}) =>{
+        createIssue : (_, {title, effort, due, owner, description}, {user}) =>{
+            if(user){console.log(user)}
             const newIssue = {
                 id:objectid().toString(),
                 title,
@@ -69,7 +70,7 @@ module.exports = {
                 effort, 
                 description
             }
-            issuesDB.push(newIssue)
+            issuesDB.unshift(newIssue)
             return newIssue
         },
         updateIssue : (_, {id, status, due, effort,description, owner}) =>{
@@ -106,7 +107,8 @@ module.exports = {
                 if(closableIssue){
                     closableIssue.status = 'Closed'
 
-                    issuesDB = issuesDB.filter(issue => issue.id !== id).concat(closableIssue)
+                    issuesDB = issuesDB.filter(issue => issue.id !== id)
+                    issuesDB.unshift(closableIssue)
                     return closableIssue;
                 }
                 

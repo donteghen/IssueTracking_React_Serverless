@@ -52,6 +52,7 @@ export default function IssueReport (){
                 {renderer()}
             </tbody>
             </table>
+            
         </div>
     )
 }

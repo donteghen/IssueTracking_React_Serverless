@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import {NavDropdown, MenuItem, Modal, Nav} from 'react-bootstrap'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {googleClientId, SIGNIN_URI, SIGNOUT_URI, USER_URI }from '../env'
+import { useHistory } from 'react-router'
 
 
 export default function AuthNav (){
-    const [disabled, setDisabled] = useState(true)
     const [user, setUser] = useState({})
     const [showing, setShowing] = useState(false)
-
+    const history = useHistory()
+    
     const signOut = ()=>{
     const auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(() => {
@@ -69,11 +70,16 @@ export default function AuthNav (){
     if(user.signedIn){
        
         return (
-            <NavDropdown title={user.name} id="basic-nav-dropdown">
+            <>
+            <NavDropdown title={user.name} id="basic-nav-dropdown" >
                 <NavDropdown.Item>
-                    <span onClick={signOut} >SignOut</span>
+                    <span onClick={() => history.push('/profile')} style={{color:'#0275d8', cursor:'pointer'}} >Profile <FontAwesomeIcon icon='user-circle' /> </span>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                <span onClick={signOut} style={{color:'#0275d8', cursor:'pointer'}} >SignOut</span>
                 </NavDropdown.Item>
           </NavDropdown>
+          </>
         )
     }
     return (<>
@@ -88,7 +94,7 @@ export default function AuthNav (){
                   </div>
                   </Modal.Body>
             </Modal>
-          <span style={{color:'#0275d8', cursor:'pointer'}} disabled={disabled} onClick={()=> setShowing(true)}>SignIn <FontAwesomeIcon icon='sign-in-alt' /></span>
+          <span style={{color:'#0275d8', cursor:'pointer'}} onClick={()=> setShowing(true)}>SignIn <FontAwesomeIcon icon='sign-in-alt' /></span>
         </>
     )
 

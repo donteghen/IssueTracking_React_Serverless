@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect , } from 'react'
 import { Link, } from 'react-router-dom'
-import { Navbar, Nav, } from 'react-bootstrap'
+import {Nav, Navbar} from 'react-bootstrap'
 import AuthNav from './AuthNav'
 export default function Header (){
+    
     return (
-        <div style={{boxShadow:'0 4px 6px -6px black'}}>
-        <Navbar expand='lg' className="bg-light justify-content-between">
+        <div>
+        <Navbar expand='lg' className="bg-light justify-content-space-between">
             <Navbar.Brand className='mx-1 px-1'>Issue Tracker</Navbar.Brand>
             <Navbar.Toggle aria-controls='navbar-nav'></Navbar.Toggle>
             <Navbar.Collapse id='navbar-nav'>
@@ -22,14 +23,11 @@ export default function Header (){
                 <Nav.Item>
                 <Link to='/about' style={{textDecoration:'none', padding:'8px', margin:'2px', color:'#0275d8'}}>About</Link>   
                 </Nav.Item>
-                <Nav.Item><AuthNav /></Nav.Item>
             </Nav>
+            <Nav><AuthNav /></Nav>
             </Navbar.Collapse>
             
         </Navbar>
-        <>
-  
-</>
         </div>
 
     )

@@ -66,6 +66,20 @@ app.post('/signin', bodyParser.json(), async (req, res) => {
         console.log(error)
     }
 })
+
+app.post('/signout', bodyParser.json(), async (req, res) => {
+  try {
+      const token = jwt.verify(req.cookies.jwt, jwtScret)
+      if(!token){
+        res.status(404).send()
+      }
+     res.clearCookie('jwt')
+     res.status(200).send()
+  } catch (error) {
+      console.log(error)
+  }
+})
+
 app.get('/about', render);
 app.get('*', (req, res) =>{ 
   console.log('reuwstes')

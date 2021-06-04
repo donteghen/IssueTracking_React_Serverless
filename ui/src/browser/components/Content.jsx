@@ -5,6 +5,7 @@ import IssueDetail from './IssueDetail.jsx'
 import IssueEdit from './IssueEdit.jsx'
 import IssueList from './IssueList.jsx'
 import IssueReport from './IssueReport.jsx'
+import Profile from './Profile.js'
 
 
 const PageNotFound = () =>{
@@ -18,6 +19,7 @@ export default function Content (){
           <Route path='/issues/:id' component={IssueDetail}/>
           <Route path="/issues" component={IssueList} />
           <Route path="/report" component={IssueReport} />
+          <Route path='/profile' component={Profile} />
           <Route path="/about" component={About} />
           <Route path='*' component={PageNotFound} /> 
         </Switch> 

@@ -1,24 +1,34 @@
-import React, { useEffect, useState } from 'react'
+// import React from 'react';
+// import Button from '@material-ui/core/Button';
+// import Menu from '@material-ui/core/Menu';
+// import MenuItem from '@material-ui/core/MenuItem';
 
-export default function NumberInput(props){
-    //const {value,onchange} = props
-    //console.log(value)
-    //const [numValue, setValue] = useState(0);
-    useEffect(() =>{
-        console.log(props)
-        setValue(props.value)
-    })
-    //console.log(numValue)
-    const handleOnchange = (e) =>{
-        setValue(e.target.value)
-    }
-    const handleOnBlur = (e) =>{
-        console.log(e.target.value)
-        props.onchange(e, e.target.value)
-    }
-    return (
-        <>
-            <input value={props.value} onChange={handleOnchange} type='number' onBlur={handleOnBlur}/>
-        </>
-    )
-}
+// export default function SimpleMenu() {
+//   const [anchorEl, setAnchorEl] = React.useState(null);
+
+//   const handleClick = (event) => {
+//     setAnchorEl(event.currentTarget);
+//   };
+
+//   const handleClose = () => {
+//     setAnchorEl(null);
+//   };
+
+//   return (
+//     <div>
+//       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+//         SignIn
+//       </Button>
+//       <Menu
+//         id="simple-menu"
+//         anchorEl={anchorEl}
+//         keepMounted
+//         open={Boolean(anchorEl)}
+//         onClose={handleClose}
+//       >
+//               <MenuItem onClick={handleClose}>Profile</MenuItem>
+//         <MenuItem onClick={handleClose}>SignOut</MenuItem>
+//       </Menu>
+//     </div>
+//   );
+// }
